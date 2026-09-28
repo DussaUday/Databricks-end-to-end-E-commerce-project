@@ -1,0 +1,2221 @@
+{
+  "datasets": [
+    {
+      "name": "ecommerce_transactions",
+      "displayName": "E-commerce Transactions",
+      "asset_name": "ecommerce.gold.fact_transactions_denorm_metric_view"
+    },
+    {
+      "name": "ecommerce_customers",
+      "displayName": "E-commerce Customers",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.gld_dim_customers",
+        "dimensions": [
+          {
+            "name": "customer_id",
+            "expr": "customer_id"
+          },
+          {
+            "name": "country",
+            "expr": "country"
+          },
+          {
+            "name": "state",
+            "expr": "state"
+          },
+          {
+            "name": "region",
+            "expr": "region"
+          },
+          {
+            "name": "country_code",
+            "expr": "country_code"
+          }
+        ]
+      }
+    },
+    {
+      "name": "6b0700d1",
+      "displayName": "gld_dim_customers",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.gld_dim_customers",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "9689ce20",
+      "displayName": "gld_dim_date",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.gld_dim_date",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "831a5835",
+      "displayName": "gld_dim_products",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.gld_dim_products",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "5e726168",
+      "displayName": "gld_fact_order_items",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.gld_fact_order_items",
+        "dimensions": [
+          {
+            "expr": "source.*"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ecommerce_dates",
+      "displayName": "E-commerce Dates",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.gld_dim_date",
+        "dimensions": [
+          {
+            "name": "date_id",
+            "expr": "date_id"
+          },
+          {
+            "name": "date",
+            "expr": "date"
+          },
+          {
+            "name": "year",
+            "expr": "year"
+          },
+          {
+            "name": "month_name",
+            "expr": "month_name"
+          },
+          {
+            "name": "day_name",
+            "expr": "day_name"
+          },
+          {
+            "name": "is_weekend",
+            "expr": "is_weekend"
+          },
+          {
+            "name": "quarter",
+            "expr": "quarter"
+          },
+          {
+            "name": "week_of_year",
+            "expr": "week_of_year"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ecommerce_order_items",
+      "displayName": "E-commerce Order Items",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.gld_fact_order_items",
+        "dimensions": [
+          {
+            "name": "date_id",
+            "expr": "date_id"
+          },
+          {
+            "name": "transaction_date",
+            "expr": "transaction_date"
+          },
+          {
+            "name": "transaction_ts",
+            "expr": "transaction_ts"
+          },
+          {
+            "name": "transaction_id",
+            "expr": "transaction_id"
+          },
+          {
+            "name": "customer_id",
+            "expr": "customer_id"
+          },
+          {
+            "name": "seq_no",
+            "expr": "seq_no"
+          },
+          {
+            "name": "product_id",
+            "expr": "product_id"
+          },
+          {
+            "name": "channel",
+            "expr": "channel"
+          },
+          {
+            "name": "coupon_code",
+            "expr": "coupon_code"
+          },
+          {
+            "name": "coupon_flag",
+            "expr": "coupon_flag"
+          },
+          {
+            "name": "unit_price_currency",
+            "expr": "unit_price_currency"
+          },
+          {
+            "name": "quantity",
+            "expr": "quantity"
+          },
+          {
+            "name": "unit_price",
+            "expr": "unit_price"
+          },
+          {
+            "name": "gross_amount",
+            "expr": "gross_amount"
+          },
+          {
+            "name": "discount_percent",
+            "expr": "discount_percent"
+          },
+          {
+            "name": "discount_amount",
+            "expr": "discount_amount"
+          },
+          {
+            "name": "tax_amount",
+            "expr": "tax_amount"
+          },
+          {
+            "name": "net_amount",
+            "expr": "net_amount"
+          },
+          {
+            "name": "net_amount_inr",
+            "expr": "net_amount_inr"
+          }
+        ],
+        "measures": [
+          {
+            "name": "total_revenue",
+            "expr": "SUM(net_amount)"
+          },
+          {
+            "name": "total_quantity",
+            "expr": "SUM(quantity)"
+          },
+          {
+            "name": "total_gross",
+            "expr": "SUM(gross_amount)"
+          },
+          {
+            "name": "total_discount",
+            "expr": "SUM(discount_amount)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ecommerce_products",
+      "displayName": "E-commerce Products",
+      "config": {
+        "version": "1.1",
+        "source": "ecommerce.gold.gld_dim_products",
+        "dimensions": [
+          {
+            "name": "product_id",
+            "expr": "product_id"
+          },
+          {
+            "name": "sku",
+            "expr": "sku"
+          },
+          {
+            "name": "category_code",
+            "expr": "category_code"
+          },
+          {
+            "name": "category_name",
+            "expr": "category_name"
+          },
+          {
+            "name": "brand_code",
+            "expr": "brand_code"
+          },
+          {
+            "name": "brand_name",
+            "expr": "brand_name"
+          },
+          {
+            "name": "color",
+            "expr": "color"
+          },
+          {
+            "name": "size",
+            "expr": "size"
+          },
+          {
+            "name": "material",
+            "expr": "material"
+          },
+          {
+            "name": "rating_count",
+            "expr": "rating_count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "c9d0bcea",
+      "displayName": "Customer Share by Country",
+      "queryLines": [
+        "\n",
+        "SELECT \n",
+        "  `country`,\n",
+        "  COUNT(DISTINCT `customer_id`) AS customer_count,\n",
+        "  ROUND(COUNT(DISTINCT `customer_id`) * 100.0 / (SELECT COUNT(DISTINCT `customer_id`) FROM `ecommerce`.`gold`.`gld_dim_customers`), 2) AS pct_of_total\n",
+        "FROM `ecommerce`.`gold`.`gld_dim_customers`\n",
+        "GROUP BY `country`\n",
+        "ORDER BY customer_count DESC\n"
+      ]
+    },
+    {
+      "name": "top_brands_revenue",
+      "displayName": "Top Brands by Revenue",
+      "queryLines": [
+        "SELECT\n",
+        "  p.brand_name,\n",
+        "  SUM(f.net_amount) AS total_revenue\n",
+        "FROM\n",
+        "  ecommerce.gold.gld_fact_order_items f\n",
+        "    JOIN ecommerce.gold.gld_dim_products p\n",
+        "      ON f.product_id = p.product_id\n",
+        "GROUP BY\n",
+        "  p.brand_name\n",
+        "ORDER BY\n",
+        "  total_revenue DESC\n",
+        "LIMIT 10"
+      ]
+    }
+  ],
+  "relationshipGraphs": [
+    {
+      "sources": [
+        {
+          "name": "Ecommerce_Transactions",
+          "datasetName": "ecommerce_transactions"
+        },
+        {
+          "name": "Ecommerce_Customers",
+          "datasetName": "ecommerce_customers"
+        },
+        {
+          "name": "gld_dim_customers",
+          "datasetName": "6b0700d1"
+        },
+        {
+          "name": "gld_dim_date",
+          "datasetName": "9689ce20"
+        },
+        {
+          "name": "gld_dim_products",
+          "datasetName": "831a5835"
+        },
+        {
+          "name": "gld_fact_order_items",
+          "datasetName": "5e726168"
+        },
+        {
+          "name": "Ecommerce_Dates",
+          "datasetName": "ecommerce_dates"
+        },
+        {
+          "name": "Ecommerce_Order_Items",
+          "datasetName": "ecommerce_order_items"
+        },
+        {
+          "name": "Ecommerce_Products",
+          "datasetName": "ecommerce_products"
+        },
+        {
+          "name": "Top_Brands_by_Revenue",
+          "datasetName": "top_brands_revenue"
+        }
+      ],
+      "relationships": [
+        {
+          "name": "relationship_0",
+          "from": "Ecommerce_Transactions",
+          "to": "Ecommerce_Customers",
+          "on": "`Ecommerce_Transactions`.`customer_id` = `Ecommerce_Customers`.`customer_id`",
+          "cardinality": "CARDINALITY_MANY_TO_ONE"
+        },
+        {
+          "name": "relationship_1",
+          "from": "Ecommerce_Transactions",
+          "to": "Ecommerce_Products",
+          "on": "`Ecommerce_Transactions`.`product_id` = `Ecommerce_Products`.`product_id`",
+          "cardinality": "CARDINALITY_MANY_TO_ONE"
+        },
+        {
+          "name": "relationship_2",
+          "from": "Ecommerce_Transactions",
+          "to": "Ecommerce_Dates",
+          "on": "`Ecommerce_Transactions`.`date_id` = `Ecommerce_Dates`.`date_id`",
+          "cardinality": "CARDINALITY_MANY_TO_ONE"
+        },
+        {
+          "name": "relationship_3",
+          "from": "Ecommerce_Order_Items",
+          "to": "Ecommerce_Customers",
+          "on": "`Ecommerce_Order_Items`.`customer_id` = `Ecommerce_Customers`.`customer_id`",
+          "cardinality": "CARDINALITY_MANY_TO_ONE"
+        },
+        {
+          "name": "relationship_4",
+          "from": "Ecommerce_Order_Items",
+          "to": "Ecommerce_Products",
+          "on": "`Ecommerce_Order_Items`.`product_id` = `Ecommerce_Products`.`product_id`",
+          "cardinality": "CARDINALITY_MANY_TO_ONE"
+        },
+        {
+          "name": "relationship_5",
+          "from": "Ecommerce_Order_Items",
+          "to": "Ecommerce_Dates",
+          "on": "`Ecommerce_Order_Items`.`date_id` = `Ecommerce_Dates`.`date_id`",
+          "cardinality": "CARDINALITY_MANY_TO_ONE"
+        }
+      ],
+      "measureExpressions": [
+        {
+          "name": "avg_order_value",
+          "expression": "SUM(`Ecommerce_Transactions`.`net_amount`) / COUNT(DISTINCT `Ecommerce_Transactions`.`transaction_id`)"
+        },
+        {
+          "name": "revenue_per_customer",
+          "expression": "SUM(`Ecommerce_Transactions`.`net_amount`) / COUNT(DISTINCT `Ecommerce_Transactions`.`customer_id`)"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "581b0b4c",
+      "displayName": "Sales Overview",
+      "layout": [
+        {
+          "widget": {
+            "name": "total_revenue",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Total Revenue"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "total_orders",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "countdistinct(Ecommerce_Transactions__transaction_id)",
+                      "expression": "COUNT(DISTINCT `Ecommerce_Transactions`.`transaction_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Total Orders"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(Ecommerce_Transactions__transaction_id)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "total_customers",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "countdistinct(Ecommerce_Transactions__customer_id)",
+                      "expression": "COUNT(DISTINCT `Ecommerce_Transactions`.`customer_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Total Customers"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(Ecommerce_Transactions__customer_id)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "avg_order_value",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "measure(avg_order_value)",
+                      "expression": "MEASURE(`avg_order_value`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Avg Order Value"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(avg_order_value)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 0,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "revenue_trend",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "monthly(Ecommerce_Transactions__transaction_date)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `Ecommerce_Transactions`.`transaction_date`)"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Revenue Trend by Month"
+              },
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "monthly(Ecommerce_Transactions__transaction_date)",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 8,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_channel",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Transactions__channel",
+                      "expression": "`Ecommerce_Transactions`.`channel`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Sales by Channel"
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Transactions__channel",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 3,
+            "width": 4,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_category",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Products__category_name",
+                      "expression": "`Ecommerce_Products`.`category_name`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {},
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Products__category_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 9,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_day",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Transactions__day_name",
+                      "expression": "`Ecommerce_Transactions`.`day_name`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Sales by Day of Week"
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Transactions__day_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 9,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "top_products",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Transactions__sku",
+                      "expression": "`Ecommerce_Transactions`.`sku`"
+                    },
+                    {
+                      "name": "Ecommerce_Products__category_name",
+                      "expression": "`Ecommerce_Products`.`category_name`"
+                    },
+                    {
+                      "name": "Ecommerce_Products__brand_name",
+                      "expression": "`Ecommerce_Products`.`brand_name`"
+                    },
+                    {
+                      "name": "Ecommerce_Products__color",
+                      "expression": "`Ecommerce_Products`.`color`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__quantity)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`quantity`)"
+                    }
+                  ],
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "DESC",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "fields": [],
+                  "value": "Top Products by Revenue"
+                }
+              },
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "Ecommerce_Transactions__sku",
+                    "displayName": "SKU"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Products__category_name",
+                    "displayName": "Category"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Products__brand_name",
+                    "displayName": "Brand"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Products__color",
+                    "displayName": "Color"
+                  },
+                  {
+                    "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                    "format": {
+                      "abbreviation": "compact",
+                      "type": "number-plain"
+                    },
+                    "displayName": "Revenue"
+                  },
+                  {
+                    "fieldName": "sum(Ecommerce_Transactions__quantity)",
+                    "format": {
+                      "abbreviation": "compact",
+                      "type": "number-plain"
+                    },
+                    "displayName": "Qty Sold"
+                  }
+                ],
+                "rowOrder": [
+                  {
+                    "by": "column-reversed",
+                    "field": {
+                      "index": 4
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 15,
+            "width": 12,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "customer_analytics",
+      "displayName": "Customer Analytics",
+      "layout": [
+        {
+          "widget": {
+            "name": "rev_per_customer",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "measure(revenue_per_customer)",
+                      "expression": "MEASURE(`revenue_per_customer`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Revenue per Customer"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(revenue_per_customer)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "total_items",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "sum(Ecommerce_Transactions__quantity)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`quantity`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Total Items Sold"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(Ecommerce_Transactions__quantity)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "total_discount",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "sum(Ecommerce_Transactions__discount_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`discount_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Total Discount Given"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(Ecommerce_Transactions__discount_amount)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_country",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Customers__country",
+                      "expression": "`Ecommerce_Customers`.`country`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Sales by Country",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Customers__country",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_region",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Customers__region",
+                      "expression": "`Ecommerce_Customers`.`region`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Sales by Region",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Customers__region",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "coupon_usage",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Transactions__coupon_flag",
+                      "expression": "`Ecommerce_Transactions`.`coupon_flag`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Coupon Usage Impact",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Transactions__coupon_flag",
+                  "format": {
+                    "mappings": [
+                      {
+                        "alias": "No Coupon",
+                        "value": "0"
+                      },
+                      {
+                        "alias": "With Coupon",
+                        "value": "1"
+                      }
+                    ],
+                    "type": "alias"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 9,
+            "width": 4,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "purchase_by_hour",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Transactions__hour_of_day",
+                      "expression": "`Ecommerce_Transactions`.`hour_of_day`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Purchasing by Hour",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Transactions__hour_of_day",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 9,
+            "width": 4,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "weekend_vs_weekday",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Transactions__is_weekend",
+                      "expression": "`Ecommerce_Transactions`.`is_weekend`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Weekend vs Weekday Sales",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Transactions__is_weekend",
+                  "format": {
+                    "mappings": [
+                      {
+                        "alias": "Weekday",
+                        "value": "0"
+                      },
+                      {
+                        "alias": "Weekend",
+                        "value": "1"
+                      }
+                    ],
+                    "type": "alias"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 9,
+            "width": 4,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "top_customers",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Transactions__customer_id",
+                      "expression": "`Ecommerce_Transactions`.`customer_id`"
+                    },
+                    {
+                      "name": "Ecommerce_Customers__country",
+                      "expression": "`Ecommerce_Customers`.`country`"
+                    },
+                    {
+                      "name": "Ecommerce_Customers__region",
+                      "expression": "`Ecommerce_Customers`.`region`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    },
+                    {
+                      "name": "countdistinct(Ecommerce_Transactions__transaction_id)",
+                      "expression": "COUNT(DISTINCT `Ecommerce_Transactions`.`transaction_id`)"
+                    }
+                  ],
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "DESC",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Top Customers by Revenue"
+              },
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "Ecommerce_Transactions__customer_id",
+                    "displayName": "Customer ID"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Customers__country",
+                    "displayName": "Country"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Customers__region",
+                    "displayName": "Region"
+                  },
+                  {
+                    "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "compact"
+                    },
+                    "displayName": "Revenue"
+                  },
+                  {
+                    "fieldName": "countdistinct(Ecommerce_Transactions__transaction_id)",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "compact"
+                    },
+                    "displayName": "Orders"
+                  }
+                ],
+                "rowOrder": [
+                  {
+                    "by": "column-reversed",
+                    "field": {
+                      "index": 3
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 20,
+            "width": 12,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "5ed35b13",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "c9d0bcea",
+                  "fields": [
+                    {
+                      "name": "customer_count",
+                      "expression": "`customer_count`"
+                    },
+                    {
+                      "name": "country",
+                      "expression": "`country`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Customer Share by Country",
+                  "fields": []
+                }
+              },
+              "mark": {
+                "size": 1
+              },
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "customer_count",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "exact",
+                      "places": 1
+                    }
+                  },
+                  "displayName": "Customers"
+                },
+                "color": {
+                  "fieldName": "country",
+                  "displayName": "Country",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "custom-order",
+                      "orderedValues": [
+                        "India",
+                        "United States",
+                        "United Kingdom",
+                        "United Arab Emirates",
+                        "Singapore",
+                        "Canada",
+                        "Australia"
+                      ]
+                    }
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 14,
+            "width": 12,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    },
+    {
+      "name": "product_analytics",
+      "displayName": "Product Analytics",
+      "layout": [
+        {
+          "widget": {
+            "name": "total_products",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "countdistinct(Ecommerce_Products__product_id)",
+                      "expression": "COUNT(DISTINCT `Ecommerce_Products`.`product_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Total Products"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(Ecommerce_Products__product_id)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "total_categories",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "countdistinct(Ecommerce_Products__category_code)",
+                      "expression": "COUNT(DISTINCT `Ecommerce_Products`.`category_code`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Total Categories"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(Ecommerce_Products__category_code)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "total_brands",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "countdistinct(Ecommerce_Products__brand_code)",
+                      "expression": "COUNT(DISTINCT `Ecommerce_Products`.`brand_code`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Total Brands"
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(Ecommerce_Products__brand_code)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 8,
+            "y": 0,
+            "width": 4,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_category_code",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Products__category_name",
+                      "expression": "`Ecommerce_Products`.`category_name`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Sales by Category",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Products__category_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_color",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Products__color",
+                      "expression": "`Ecommerce_Products`.`color`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Sales by Color",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Products__color",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_size",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Products__size",
+                      "expression": "`Ecommerce_Products`.`size`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": "Sales by Size"
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Products__size",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 9,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "sales_by_material",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Products__material",
+                      "expression": "`Ecommerce_Products`.`material`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Sales by Material",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Ecommerce_Products__material",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 9,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "top_brands",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Top_Brands_by_Revenue__brand_name",
+                      "expression": "`Top_Brands_by_Revenue`.`brand_name`"
+                    },
+                    {
+                      "name": "Top_Brands_by_Revenue__total_revenue",
+                      "expression": "`Top_Brands_by_Revenue`.`total_revenue`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Top Brands by Revenue",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Top_Brands_by_Revenue__brand_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "Top_Brands_by_Revenue__total_revenue",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 15,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "product_performance",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Ecommerce_Transactions__sku",
+                      "expression": "`Ecommerce_Transactions`.`sku`"
+                    },
+                    {
+                      "name": "Ecommerce_Products__category_name",
+                      "expression": "`Ecommerce_Products`.`category_name`"
+                    },
+                    {
+                      "name": "Ecommerce_Products__brand_name",
+                      "expression": "`Ecommerce_Products`.`brand_name`"
+                    },
+                    {
+                      "name": "Ecommerce_Products__color",
+                      "expression": "`Ecommerce_Products`.`color`"
+                    },
+                    {
+                      "name": "Ecommerce_Products__size",
+                      "expression": "`Ecommerce_Products`.`size`"
+                    },
+                    {
+                      "name": "Ecommerce_Products__material",
+                      "expression": "`Ecommerce_Products`.`material`"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__net_amount)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    },
+                    {
+                      "name": "sum(Ecommerce_Transactions__quantity)",
+                      "expression": "SUM(`Ecommerce_Transactions`.`quantity`)"
+                    }
+                  ],
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "DESC",
+                      "expression": "SUM(`Ecommerce_Transactions`.`net_amount`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Product Performance Summary",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "Ecommerce_Transactions__sku",
+                    "displayName": "SKU"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Products__category_name",
+                    "displayName": "Category"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Products__brand_name",
+                    "displayName": "Brand"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Products__color",
+                    "displayName": "Color"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Products__size",
+                    "displayName": "Size"
+                  },
+                  {
+                    "fieldName": "Ecommerce_Products__material",
+                    "displayName": "Material"
+                  },
+                  {
+                    "fieldName": "sum(Ecommerce_Transactions__net_amount)",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "compact"
+                    },
+                    "displayName": "Revenue"
+                  },
+                  {
+                    "fieldName": "sum(Ecommerce_Transactions__quantity)",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "compact"
+                    },
+                    "displayName": "Qty Sold"
+                  }
+                ],
+                "rowOrder": [
+                  {
+                    "by": "column-reversed",
+                    "field": {
+                      "index": 6
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 15,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
