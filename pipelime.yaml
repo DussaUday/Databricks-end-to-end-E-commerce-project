@@ -1,0 +1,74 @@
+resources:
+  jobs:
+    E_commerce_Medallion_Pipeline:
+      name: E-commerce Medallion Pipeline
+      email_notifications:
+        on_failure:
+          - udaydussa58@gmail.com
+      trigger:
+        pause_status: PAUSED
+        periodic:
+          interval: 4
+          unit: HOURS
+      tasks:
+        - task_key: Setup
+          notebook_task:
+            notebook_path: /Users/udaydussa58@gmail.com/E-commerce/01_set_up
+            source: WORKSPACE
+          description: Creates the ecommerce catalog and bronze/silver/gold schemas
+        - task_key: Bronze-Dim
+          depends_on:
+            - task_key: Setup
+          notebook_task:
+            notebook_path: /Users/udaydussa58@gmail.com/E-commerce/medallion_processing_dim/1_dim_notebook
+            source: WORKSPACE
+          description: Loads dimension CSV files from UC volumes into bronze tables
+        - task_key: Bronze-Fact
+          depends_on:
+            - task_key: Setup
+          notebook_task:
+            notebook_path: /Users/udaydussa58@gmail.com/E-commerce/medallion_processing_fact/1_fact_bronze
+            source: WORKSPACE
+          description: "Auto Loader: incrementally loads new order_items CSVs from landing
+            folder into bronze"
+        - task_key: Silver-Dim
+          depends_on:
+            - task_key: Bronze-Dim
+          notebook_task:
+            notebook_path: /Users/udaydussa58@gmail.com/E-commerce/medallion_processing_dim/1_dim_sliver
+            source: WORKSPACE
+          description: Cleans and type-casts bronze dimension tables into silver tables
+        - task_key: Silver-Fact
+          depends_on:
+            - task_key: Bronze-Fact
+          notebook_task:
+            notebook_path: /Users/udaydussa58@gmail.com/E-commerce/medallion_processing_fact/2_fact_silver
+            source: WORKSPACE
+          description: "MERGE: incrementally upserts cleaned order_items into
+            ecommerce.sliver.slv_order_items"
+        - task_key: Gold-Dim
+          depends_on:
+            - task_key: Silver-Dim
+          notebook_task:
+            notebook_path: /Users/udaydussa58@gmail.com/E-commerce/medallion_processing_dim/1_dim_gold
+            source: WORKSPACE
+          description: Builds gold dimension tables (gld_dim_products, gld_dim_customers,
+            gld_dim_date)
+        - task_key: Gold-Fact
+          depends_on:
+            - task_key: Silver-Fact
+          notebook_task:
+            notebook_path: /Users/udaydussa58@gmail.com/E-commerce/medallion_processing_fact/3_fact_gold
+            source: WORKSPACE
+          description: "MERGE: incrementally upserts order_items with calculated measures
+            into gold fact table"
+        - task_key: Refresh_Dashboard
+          depends_on:
+            - task_key: Gold-Dim
+            - task_key: Gold-Fact
+          dashboard_task:
+            dashboard_id: 01f1b8a3ce7412b5b29df7d0aeac2948
+          description: Refreshes and republishes the E-commerce Sales & Customer Analytics
+            dashboard with latest gold data
+      queue:
+        enabled: true
